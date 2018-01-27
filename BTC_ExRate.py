@@ -4,6 +4,8 @@ import time
 import sys
 import datetime
 
+arguments = ['log', 'display']
+
 def getBTCExRate():
     url = "https://blockchain.info/ticker"
     response = urllib.urlopen(url)
@@ -11,12 +13,14 @@ def getBTCExRate():
     ExRate = data['USD']['last']
     return ExRate
 
-if "log" in sys.argv[1:]:
+
+if arguments[] in sys.argv[1:]:
     while True:
-        with open("/home/pi/BTC_ExRate/BTC_ExRateLog.txt","a") as f:
-            now = datetime.datetime.now()
-            f.write(now.strftime("%d.%m.%y | %H:%M  ") + str(getBTCExRate()) + "\n")
-            time.sleep(60)
+        if "log" in sys.argv[1:]:
+            with open("/home/pi/BTC_ExRate/BTC_ExRateLog.txt","a") as f:
+                now = datetime.datetime.now()
+                f.write(now.strftime("%d.%m.%y | %H:%M  ") + str(getBTCExRate()) + "\n")
+                time.sleep(60)
 else:
     print str(getBTCExRate()) + " $"
 
