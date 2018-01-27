@@ -11,7 +11,7 @@ def getBTCExRate():
     ExRate = data['USD']['last']
     return ExRate
 
-if "log" in sys.argv[1:]
+if "log" in sys.argv[1:]:
     while True:
         with open("/home/pi/BTC_ExRate/BTC_ExRateLog.txt","a") as f:
             now = datetime.datetime.now()
