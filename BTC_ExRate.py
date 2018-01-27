@@ -14,13 +14,15 @@ def getBTCExRate():
     return ExRate
 
 
-if arguments[] in sys.argv[1:]:
-    while True:
-        if "log" in sys.argv[1:]:
-            with open("/home/pi/BTC_ExRate/BTC_ExRateLog.txt","a") as f:
-                now = datetime.datetime.now()
-                f.write(now.strftime("%d.%m.%y | %H:%M  ") + str(getBTCExRate()) + "\n")
-                time.sleep(60)
+while True:
+    if "log" in sys.argv[1:]:
+        with open("/home/pi/BTC_ExRate/BTC_ExRateLog.txt","a") as f:
+            now = datetime.datetime.now()
+            f.write(now.strftime("%d.%m.%y | %H:%M  ") + str(getBTCExRate()) + "\n")
+
+    if "display" in sys.argv[1:]:
+
+    time.sleep(60)
 else:
     print str(getBTCExRate()) + " $"
 
