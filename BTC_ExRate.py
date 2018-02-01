@@ -4,6 +4,7 @@ import time
 import sys
 import datetime
 from RPLCD.gpio import CharLCD
+import RPi.GPIO as GPIO
 
 arguments = ['log', 'display']
 
