@@ -3,7 +3,7 @@ import json
 import time
 import sys
 import datetime
-from RPLCD.gpio import CharLCD
+from RPLCD import CharLCD
 import RPi.GPIO as GPIO
 
 arguments = ['log', 'display']
@@ -23,9 +23,10 @@ while True:
             f.write(now.strftime("%d.%m.%y | %H:%M  ") + str(getBTCExRate()) + "\n")
 
     if "display" in sys.argv[1:]:
-        lcd = CharLCD(pin_rs=15, pin_rw=18, pin_e=16, pins_data[21, 22, 23, 24],
+        lcd = CharLCD(pin_rs=15, pin_rw=18, pin_e=16, pins_data=[21, 22, 23, 24],
         numbering_mode=GPIO.BOARD)
-        lcd.write_string("Ahoj")
+        lcd.write_string("Bitcoin kurz: " + str(getBTCExRate()) + "$")
+
     time.sleep(60)
 else:
     print str(getBTCExRate()) + " $"
